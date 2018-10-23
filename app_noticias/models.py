@@ -67,3 +67,14 @@ class MensagemDeContato(models.Model):
 
     def __str__(self):
         return self.nome
+
+class DenunciaNoticia(models.Model):
+    class Meta:
+        verbose_name = 'Denúncia de Notícia'
+        verbose_name_plural = 'Denúncias de Notícias'
+    Estado = models.CharField("Estado",max_length=50, null=True, blank=True)
+    Cidade = models.CharField("Cidade", max_length=50, null=True, blank=True)
+    Descricao = models.TextField("Descrição", max_length=255, null=True, blank=True)
+    
+    def __str__(self):
+       return "{} - {}".format(self.Cidade, self.Estado)
